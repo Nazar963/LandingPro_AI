@@ -1,0 +1,103 @@
+
+
+.contacts-section-var3 {
+    width: 100%;
+    background-color: var(--background-color-grey);
+    padding: 40px 8% ;
+}
+
+.contacts-container {
+    margin: 0 auto;
+}
+
+.contacts-header-row {
+    display: flex;
+    flex-direction: column; /* вертикальная ориентация */
+    align-items: center;     /* центрирование по горизонтали */
+    gap: 20px;
+    text-align: center;      /* чтобы контакты не "тянули" влево */
+}
+
+
+.brand-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+.contacts-row {
+    display: flex;
+    flex-wrap: wrap;
+justify-content: center; /* центрирование самих контактов */
+
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    position: relative;
+}
+
+
+.contact-value {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+/* Адаптация для планшетов */
+
+@media (max-width: 1054px) {
+    .contacts-row {
+        gap: 20px;
+    }
+    
+    .contact-item {
+        padding-right: 20px;
+    }
+    
+    .contact-item::after {
+        height: 50%;
+    }
+}
+
+
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .contacts-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .contact-item {
+        padding-right: 0;
+        white-space: normal;
+        width: 100%;
+    }
+    
+    .contact-item::after {
+        display: none;
+    }
+    
+    .brand-title {
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 460px) {
+.contact-value {
+    font-size: 12px;
+}
+}
+
+
+
+@media (min-width: 1600px) {
+  .features-container {
+    max-width: none;
+  }
+}

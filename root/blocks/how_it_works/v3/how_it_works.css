@@ -1,0 +1,118 @@
+/* How It Works Variant 3 (с изображениями) - Оптимизированная версия */
+.how-it-works-var3 {
+  background-color: #fff;
+  padding: var(--section-padding);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+  max-width: 600px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+.step-content {
+  flex: 1;
+  max-width: 50%;
+  position: relative;
+}
+
+.step-header {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.step-number {
+  position: absolute;
+  font-family: 'Inter', sans-serif;
+  font-size: 160px;
+  font-weight: 900;
+  color: rgba(37, 43, 66, 0.05);
+  line-height: 1;
+  z-index: 0;
+  top: -110px;
+  left: -20px;
+}
+
+.step-description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #737373;
+  line-height: 1.7;
+}
+
+.step-image {
+  display: block;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .step-item { gap: 40px; }
+  .step-number { font-size: 140px; top: -90px; }
+  .step-image { width: 250px; height: 250px; }
+}
+
+@media (max-width: 992px) {
+  .step-item {
+    flex-direction: column;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+  
+  .step-item-reversed {
+    flex-direction: column-reverse;
+  }
+  
+  .step-content { max-width: 90%; }
+  
+  .step-image {
+    width: 220px;
+    height: 220px;
+    margin-bottom: 30px;
+  }
+  
+  .step-number {
+    font-size: 100px;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+} 
+
+@media (max-width: 768px) {
+  .step-number { font-size: 80px; top: -45px; }
+  .step-image {
+    max-width: 70vw;
+    max-height: 70vw;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container { max-width: 1500px; }
+  .step-description { font-size: 18px; }
+  .step-content { max-width: 30%; }
+  .step-image { width: 500px; height: 500px; }
+
+}

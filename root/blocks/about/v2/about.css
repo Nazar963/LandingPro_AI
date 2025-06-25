@@ -1,0 +1,158 @@
+/* Основные стили */
+.about-var2 {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-color-grey);
+    padding: var(--section-padding);
+}
+
+.about-box {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Контейнер изображения */
+.about-img-container {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+}
+
+/* Декоративный элемент */
+.decorative-star {
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    animation: float 3s ease-in-out infinite alternate;
+    
+    /* Новые свойства для маски */
+    background-color: var(--primary-color); /* Контролируемый цвет */
+    
+    mask-image: url('/img/decor/star.svg');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    
+    -webkit-mask-image: url('/img/decor/star.svg');
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+    
+    opacity: 0.9;
+}
+
+
+/* Основное изображение */
+.circle-image {
+    width: var(--circle-image-size);
+    height: var(--circle-image-size);
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Контентная часть */
+.about-content {
+    flex: 1;
+    max-width: 540px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.about-content .btn {
+    align-self: flex-start;
+    margin: 0;
+    width: auto;
+}
+
+/* Анимация */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .circle-image {
+        --circle-image-size: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-box {
+        flex-direction: column;
+    }
+    
+    .circle-image {
+        --circle-image-size: var(--circle-image-size-md);
+    }
+    
+    .about-content {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .about-content .btn {
+        align-self: center;
+    }
+
+    .decorative-star {
+        animation: none;
+        right: 50px;
+        bottom: -15px;
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .circle-image {
+        --circle-image-size: var(--circle-image-size-sm);
+    }
+
+    .decorative-star {
+        display: none;
+    }
+}
+
+@media (min-width: 1920px) {
+    .about-box {
+        max-width: 1600px;
+        gap: 200px;
+    }
+    
+    .circle-image {
+        --circle-image-size: 500px;
+    }
+    
+    .about-content {
+        max-width: 600px;
+    }
+    
+    .decorative-star {
+        right: -40px;
+        width: 150px;
+        height: 150px;
+    }
+}

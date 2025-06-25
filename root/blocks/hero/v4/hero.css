@@ -1,0 +1,221 @@
+.hero-var4 {
+  position: relative;
+  height: 100vh;
+  background-color: var(--background-color-dark);
+  padding: var(--section-padding);
+  font-family: var(--font-main);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-content-wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5vw; /* Отступ между колонками в vw */
+  padding-top: calc(var(--navbar-height) / 2);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero-content {
+  max-width: 600px;
+  width: 100%;
+}
+
+.hero-headline {
+  font-family: var(--font-heading);
+  font-size: clamp(3.5rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  color: #fff;
+}
+
+.hero-subhead {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.4;
+  margin-bottom: 40px;
+  font-weight: 500;
+  font-family: var(--font-heading);
+  max-width: 600px;
+  color: var(--background-color-grey);
+}
+
+.hero-image-container {
+  flex: 0 1 45%;
+  height: 70vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2rem;
+  position: relative;
+}
+
+.hero-image-container::after {
+  content: "";
+  position: absolute;
+  left: 0%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 300px;
+  height: 300px;
+  background-color: var(--primary-color); /* Цвет звезды! */
+
+  mask-image: url('/img/decor/star.svg');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+
+  -webkit-mask-image: url('/img/decor/star.svg'); /* Safari */
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  z-index: 2;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 100rem;
+}
+
+/* Адаптивность */
+
+@media (min-width: 1025px) and (max-width: 1400px) {
+  .hero-var4 {
+    padding-top: 4rem;
+  }
+
+  .hero-headline {
+    margin-bottom: 1rem;
+    font-size: 3rem;
+  }
+
+  .hero-subhead {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+
+  .hero-content {
+    flex-basis: 50%;
+  }
+
+  .hero-image-container {
+    flex-basis: 45%;
+    padding-bottom: 2rem;
+  }
+
+  .hero-image-container::after {
+    transform: translateX(-30%);
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-content-wrapper {
+    padding: 2rem 24px;
+    gap: 2rem;
+  }
+
+  .hero-image-container::after {
+    left: 0;
+    bottom: 0;
+    transform: translate(-30px, 0px);
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-var4 {
+    padding-top: 4rem; /* Уменьшил с 6rem */
+    height: auto;
+    /* min-height: 100vh; */
+  }
+
+  .hero-content-wrapper {
+    flex-direction: column;
+  padding-top: calc(var(--navbar-height) / 2);
+    gap: 1.5rem; /* Уменьшил общий gap между элементами */
+  }
+
+  .hero-content {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-headline {
+    font-size: 2.5rem; /* Уменьшил размер шрифта */
+    margin-bottom: 0.75rem; /* Уменьшил отступ */
+  }
+
+  .hero-subhead {
+    margin-bottom: 1.5rem; /* Уменьшил отступ */
+    font-size: 1.25rem; /* Уменьшил размер шрифта */
+  }
+
+  .hero-image-container {
+    width: 100%;
+    height: 40vh; /* Более подходящая высота */
+    min-height: 200px; /* Уменьшил минимальную высоту */
+    margin-top: 1rem; /* Добавил небольшой отступ сверху */
+  }
+
+  .hero-image {
+    max-height: 250px;
+  }
+}
+
+@media (max-width: 650px) {
+  .hero-var4 {
+    padding-top: 7rem;
+    min-height: calc(100vh - 1px);
+  }
+
+  .hero-content-wrapper {
+    gap: 1rem;
+    padding: 5rem 0;
+  }
+
+  .hero-image-container {
+    height: 30vh;
+    min-height: 180px;
+    margin-top: 0.5rem;
+    padding-bottom: 0;
+  }
+
+  .hero-headline,
+  .hero-subhead {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 550px) {
+  .hero-image-container::after {
+    left: 50%;
+    bottom: 0;
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 350px) {
+  .hero-headline,
+  .hero-subhead {
+    word-break: break-word;
+  }
+  .hero-image-container::after {
+    display: none;
+  }
+}

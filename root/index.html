@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+  	<link href="https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@500;600;800&display=swap" rel="stylesheet" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap">
+
+	<link rel="stylesheet"  href="./index.css" />
+  	
+</head>
+<body class="var-light">  <!-- --- cambiare per var-dark, se la tema e scura -->
+	
+	 <nav class="hero-navbar">
+    <div class="hero-brand">BrandName</div>
+    <div class="burger-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="hero-nav-links">
+      <a href="#hero-container" class="hero-nav-link">Home</a>
+      <a href="#how_it_works-container" class="hero-nav-link">How it works</a>
+      <a href="#reviews-container" class="hero-nav-link">Reviews</a>
+      <a href="#contacts-container" class="hero-nav-link">Contacts</a>
+    </div>
+  </nav>
+  	
+	<div id="hero-container"></div>
+	<div id="features-container"></div>
+	<div id="how_it_works-container"></div>
+	<div id="about-container"></div>
+	<div id="reviews-container"></div>
+	<div id="action-container"></div>
+	<div id="feedback-container"></div>
+	<div id="contacts-container"></div>
+	<footer class="bottom">
+		<div class="container">
+			<div class="row">
+			<div class="copyright">
+				YourBrandName © All Rights Reserved
+			</div>
+			<div class="docs">
+				<a href="#" class="doc-link">Privacy Policy</a>
+				<a href="#" class="doc-link">Terms and Conditions</a>
+			</div>
+			</div>
+		</div>
+	</footer>
+	
+
+	
+
+  	
+<script src="js/loadBlocks.js"></script>
+<script src="js/index.js"></script>
+<script> /* Nizz:"v3/v2 etc" possibile di cambiare da utente */
+	loadBlock('hero', 'blocks/hero/v4');
+	loadBlock('features', 'blocks/features/v3');
+  	loadBlock('how_it_works', 'blocks/how_it_works/v4');
+	loadBlock('about', 'blocks/about/v3');
+    loadBlock('reviews', 'blocks/reviews/v3');
+   	loadBlock('action', 'blocks/action/v1');
+	loadBlock('feedback', 'blocks/feedback/v1');
+   loadBlock('contacts', 'blocks/contacts/v3');
+</script>
+</body>
+</html>

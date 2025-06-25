@@ -1,0 +1,450 @@
+:root {
+  --background-color-white: #ffffff;
+  --background-color-grey: #F7F7F7;
+  --background-color-dark: #010625;
+  --primary-color: #1471d4; /* Nizz: possibile di cambiare da utente */
+  --primary-hover: #002750;
+  --text-light: #ffffff;
+  --navbar-height: 96px;
+  --logo-color: var(--text-light);
+  --link-color: var(--text-light);
+  --link-hover-opacity: 0.5;
+  --burger-color: var(--text-light); /* цвет бургера по умолчанию */
+  --gutter-x: 8%; /* Используем одинаковый процент */
+  --section-padding: 80px var(--gutter-x);
+
+
+  /* Font Variables */
+  /* Base sizes */
+  --font-size-section-title: 40px;
+  --font-size-subtitle: 18px;
+  --font-size-item-title: 20px;
+  --font-size-body: 14px;
+  
+  /* Font weights */
+  --font-weight-bold: 600;
+  --font-weight-semibold: 600;
+  --font-weight-regular: 400;
+  
+  /* Line heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.6;
+  --line-height-loose: 1.7;
+  
+  /* Font families */
+  --font-main: 'Montserrat', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+  
+
+
+   /* Circle Image Variables */
+  --circle-image-size: 300px;
+  --circle-image-size-md: 250px;
+  --circle-image-size-sm: 150px;
+  --circle-image-border-radius: 50%;
+  --circle-image-object-fit: cover;
+  --circle-image-object-position: center;
+  --circle-image-margin: 0 auto;
+
+}
+
+  @media (min-width: 1920px) {
+    :root {
+      --gutter-x: 15%;
+    }
+  }
+
+
+  /* Font Classes */
+  .section-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-section-title);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+   text-shadow: 
+    0.35px 0 0 currentColor, 
+    -0.35px 0 0 currentColor;
+  /* margin-bottom: 10px; */
+}
+
+.subtitle {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-subtitle);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+}
+
+.item-title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-item-title);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  margin-bottom: 10px;
+
+}
+
+.body-text {
+  font-family: var(--font-main);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: #4c4c4c;
+}
+
+
+  /* Fonts responsive */
+@media (min-width: 1920px) {
+  :root {
+    --font-size-section-title: 48px;
+    --font-size-subtitle: 20px;
+    --font-size-item-title: 22px;
+    --font-size-body: 16px;
+  }
+}
+
+/* Адаптивность для планшетов (768px и меньше) */
+@media (max-width: 768px) {
+  :root {
+    --font-size-section-title: 32px;
+    --font-size-subtitle: 16px;
+    --font-size-item-title: 18px;
+    --font-size-body: 13px;
+  }
+}
+
+/* Адаптивность для мобильных (350px и меньше) */
+@media (max-width: 350px) {
+  :root {
+    --font-size-section-title: 28px;
+    --font-size-subtitle: 15px;
+    --font-size-item-title: 16px;
+    --font-size-body: 12px;
+  }
+}
+
+ 
+
+/* Сircle-image */
+.circle-image {
+  display: var(--circle-image-display);
+  width: var(--circle-image-size);
+  height: var(--circle-image-size);
+  border-radius: var(--circle-image-border-radius);
+  object-fit: var(--circle-image-object-fit);
+  object-position: var(--circle-image-object-position);
+  margin: var(--circle-image-margin);
+}
+
+@media (max-width: 768px) {
+  .circle-image {
+    --circle-image-size: var(--circle-image-size-md);
+  }
+
+}
+
+@media (max-width: 480px) {
+  .circle-image {
+    --circle-image-size: var(--circle-image-size-sm);
+  }
+}
+
+/* Темный макет (по умолчанию) */
+body.var-dark {
+  --logo-color: var(--text-light);
+  --link-color: var(--text-light);
+  --burger-color: white;
+}
+
+/* Светлый макет */
+body.var-light {
+  --logo-color: var(--text-dark);
+  --link-color: var(--text-dark);
+  --burger-color: black;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
+
+}
+
+
+
+body {
+  font-family: var(--font-main);
+  line-height: normal;
+  word-wrap: break-word;
+
+}
+
+/* Навигация */
+.hero-navbar {
+  
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px var(--gutter-x);
+  width: 100%;
+  font-family: var(--font-main);
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  /* backdrop-filter: blur(10px); красиво размывает задний фон */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  will-change: transform;
+}
+
+/* Hidden navbar */
+
+.navbar-hidden {
+  transform: translateY(calc(-100% - 10px)); /* Добавляем небольшой отступ для плавности */
+  transition: transform 0.3s ease;
+}
+
+.navbar-visible {
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.hero-navbar.scrolled {
+  background-color: #F7F7F7;
+  opacity: 70%;
+}
+
+body.var-dark .hero-navbar.scrolled {
+  background-color: var(--background-color-dark);
+}
+
+/* Логотип */
+.hero-brand {
+  letter-spacing: 0.1px;
+  line-height: 32px;
+  font-size: 24px; /* Размер шрифта для логотипа */
+  font-weight: 700; /* Жирность для выделения */
+  cursor: pointer; 
+  color: var(--logo-color);
+}
+
+
+/* Контейнер для ссылок */
+.hero-nav-links {
+  display: flex;
+  gap: 40px; /* Расстояние между ссылками */
+  font-size: 16px; /* Размер шрифта для ссылок */
+  font-weight: 600; /* Жирность для ссылок */
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  line-height: 24px; /* Высота строки */
+  text-align: center;
+  color: var( --link-color);
+}
+
+/* Стиль для каждой ссылки */
+.hero-nav-link {
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  font-weight: 600;
+  text-decoration: none; /* Убираем подчеркивание */
+  cursor: pointer; /* Добавляем курсор для кликабельности */
+  transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
+  color: var(--link-color);
+}
+
+.hero-nav-link:hover {
+  opacity: var(--link-hover-opacity);
+}
+
+
+/* Бургер-меню */
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 100;
+  position: relative;
+  background-color: transparent; /* здесь используется переменная */
+
+}
+
+.burger-menu span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--burger-color);
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Анимация бургера в крестик */
+.burger-menu.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.burger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+.burger-menu.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+@media (max-width: 650px) {
+  .hero-navbar {
+    padding: 20px 16px;
+  }
+
+  .hero-nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    transition: right 0.5s ease;
+    z-index: 90;
+    padding-top: 80px;
+  }
+
+  .hero-nav-links.active {
+    right: 0;
+  }
+
+  .burger-menu {
+    display: flex;
+    z-index: 100;
+  }
+}
+
+/* Общая кнопка */
+.btn {
+  display: inline-block;
+  border-radius: 37px; /* Nizz: possibile di cambiare da utente */
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 20px 36px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s;
+  font-family: var(--font-heading);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.btn_dark_theme {
+  display: inline-block;
+  border-radius: 37px;
+  background-color: white;
+  padding: 20px 36px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s;
+  font-family: var(--font-heading);
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.container {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+
+/* Стиль футера */
+.bottom {
+  width: 100%;
+  background-color: #000;
+  color: #737373;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  padding: 20px var(--gutter-x);
+}
+
+/* Контейнер внутри футера */
+.bottom .container {
+  max-width: 100%;
+}
+
+/* Основной ряд футера: горизонтально на десктопе */
+.bottom .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* на случай, если не влезает */
+  gap: 10px;
+}
+
+/* Линки */
+.bottom .docs {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Стили ссылок */
+.bottom .doc-link {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.bottom .doc-link:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .bottom .row {
+    flex-direction: column;
+    text-align: center;
+    gap: 0px;
+  }
+
+  .bottom .docs {
+    justify-content: center;
+    gap: 0px;
+  }
+
+  .bottom .copyright {
+    margin-top: 10px;
+  }
+
+}
+
+html {
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,161 @@
+.hero-parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+  transition: transform 0.4s cubic-bezier(0.16, 0.68, 0.43, 0.99);
+  z-index: -2;
+}
+
+.hero-bg-layer-1 {
+  background-image: url('/img/hero/hero-bg.png');
+  transform: scale(1.1); /* Легкий зум для эффекта глубины */
+}
+
+/* Минимальный параллакс только для фона */
+[data-parallax] {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+.hero-var2 {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--text-light);
+  padding: var(--section-padding);
+  font-family: var(--font-main);
+  overflow: hidden;
+}
+
+
+.hero-filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    89.85deg, 
+    #000 0%, 
+    #000 10%, 
+    rgba(0, 0, 0, 0.7) 40%, 
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 0;
+}
+
+.hero-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 96px);
+  box-sizing: border-box;
+  padding-top: calc(var(--navbar-height) / 2);
+}
+
+.hero-content {
+  max-width: 720px;
+  width: 100%;
+  transform: translateY(-5%);
+  text-align: center;
+}
+
+.hero-headline {
+  font-family: var(--font-heading);
+  font-size: calc(2rem + 1.5vw);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.2px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.hero-subhead {
+  font-size: 1.3rem;
+  line-height: 1.4;
+  margin: 0 auto 40px;
+  font-weight: 500;
+  font-family: var(--font-heading);
+  max-width: 600px;
+  opacity: 0.8;
+}
+
+.btn {
+  margin: 0 auto;
+  display: block;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .hero-content {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    max-width: 100%;
+  }
+  
+  .hero-subhead {
+    max-width: 100%;
+    margin-bottom: 32px;
+  }
+  
+  .hero-filter {
+    background: linear-gradient(
+      180deg, 
+      rgba(0,0,0,0.7) 0%, 
+      rgba(0,0,0,0.4) 50%, 
+      rgba(0,0,0,0) 100%
+    );
+  }
+}
+
+@media (max-width: 468px) {
+  .hero-headline {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    line-height: 1.2;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .hero-subhead {
+    font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+    line-height: 1.5;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  .hero-content {
+    padding: 0 5%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .hero-headline {
+    font-size: calc(3rem + 1.5vw);
+    max-width: 800px;
+  }
+
+  .hero-subhead {
+    font-size: 2rem;
+    max-width: 800px;
+  }
+
+.hero-content {
+    max-width: 1000px;
+    display: flex;          /* Добавлено */
+    flex-direction: column; /* Добавлено */
+    align-items: center;    /* Теперь работает */
+    margin: 0 auto;         /* Доп. центрирование */
+  }
+}

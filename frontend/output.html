@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Output</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .content {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generated Output</h1>
+    <div class="content" id="output"></div>
+    <button onclick="goBack()">Back to Prompt Page</button>
+
+    <script>
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+
+        // Retrieve the generated content from sessionStorage
+        const generatedContent = sessionStorage.getItem('generatedContent');
+        if (generatedContent) {
+            document.getElementById('output').innerHTML = generatedContent; // Use innerHTML to render HTML and CSS
+        } else {
+            document.getElementById('output').textContent = 'No content available.';
+        }
+    </script>
+</body>
+</html>

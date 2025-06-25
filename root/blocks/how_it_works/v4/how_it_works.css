@@ -1,0 +1,108 @@
+/* How It Works Variant 4 (с изображениями) - Оптимизированная версия */
+.how-it-works-var4 {
+  background-color: #fff;
+  padding: var(--section-padding);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+  max-width: 600px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.step-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+}
+
+.step-content {
+  flex: 1;
+  width: 100%;
+  position: relative;
+}
+
+.step-header {
+  position: relative;
+}
+
+.step-number {
+  position: absolute;
+  font-family: 'Inter', sans-serif;
+  font-size: 160px;
+  font-weight: 900;
+  color: rgba(37, 43, 66, 0.05);
+  line-height: 1;
+  z-index: 0;
+  top: -110px;
+  left: -20px;
+}
+
+.step-image {
+  display: block;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .container { max-width: 900px; }
+  .step-item { gap: 30px; }
+  .step-number { font-size: 140px; top: -90px; }
+  .step-image { width: 250px; height: 250px; }
+}
+
+@media (max-width: 992px) {
+  .step-item {
+    flex-direction: column;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+  
+  .step-content { max-width: 100%; }
+  
+  .step-image {
+    width: 220px;
+    height: 220px;
+    margin-bottom: 5px;
+  }
+  
+  .step-number {
+    font-size: 100px;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .step-number { font-size: 80px; top: -45px; }
+}
+
+@media (max-width: 300px) {
+  .step-image {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container { max-width: 1500px; }
+  .step-content { max-width: 30%; }
+  .step-image { width: 500px; height: 500px; }
+}

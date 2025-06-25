@@ -1,0 +1,194 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #fff;
+}
+
+/* Feedback Section */
+.feedback-section {
+    width: 100%;
+    padding: var(--section-padding);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.feedback-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.feedback-content {
+    flex: 1;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+
+/* Feedback Form */
+.feedback-form {
+    flex: 1;
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 1rem;
+    max-width: 100%;
+}
+.feedback-icn {
+    position: absolute;
+    width: 15vw;
+    height: 15vw; /* Добавляем высоту, так как теперь это div */
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: var(--primary-color); /* Цвет заливки, который вы хотите контролировать */
+    
+    /* Маска SVG */
+    mask-image: url('/img/feedback/feedback_icn.svg');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    
+    /* Для Safari */
+    -webkit-mask-image: url('/img/feedback/feedback_icn.svg');
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+}
+.form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.form-control {
+    flex: 1;
+    min-width: 0;
+}
+
+.form-control input,
+.form-control textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    border: 1px solid #e6e6e6;
+    font-size: 14px;
+    color: #737373;
+    transition: border-color 0.3s;
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-control input::placeholder,
+.form-control textarea::placeholder {
+    color: #737373;
+}
+
+.message-control textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* Button with Star */
+
+
+
+/* Decorative Star */
+.feedback-icn {
+    position: absolute;
+    width: 15vw;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .feedback-container {
+        gap: 40px;
+    }
+
+    .feedback-title {
+        font-size: 36px;
+    }
+    
+    .decorative-star {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .feedback-container {
+        flex-direction: column;
+    }
+
+    .feedback-content,
+    .feedback-form {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .feedback-content {
+        text-align: center;
+    }
+
+    .feedback-title {
+        font-size: 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+    
+}
+
+@media (max-width: 350px) {
+.decor-image-container {
+  display: none;
+}
+}
+
+@media (min-width: 1920px) {
+.feedback-container{
+  max-width: 100%;
+}
+.feedback-content{
+  max-width: 700px;
+}
+}

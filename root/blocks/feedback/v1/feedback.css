@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+}
+
+
+/* Feedback Section */
+.feedback-section {
+    width: 100%;
+    padding: var(--section-padding);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feedback-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.feedback-content {
+    flex: 1;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Feedback Form */
+.feedback-form {
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 1rem;
+    max-width: 100%;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.form-control {
+    flex: 1;
+    min-width: 0; /* убрано жесткое ограничение */
+}
+
+.form-control input,
+.form-control textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    border: 1px solid #e6e6e6;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #737373;
+    transition: border-color 0.3s;
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+    outline: none;
+    border-color: #198cff;
+}
+
+.form-control input::placeholder,
+.form-control textarea::placeholder {
+    color: #737373;
+}
+
+.message-control textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .feedback-container {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .feedback-container {
+        flex-direction: column;
+    }
+
+    .feedback-content,
+    .feedback-form {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .feedback-content {
+        text-align: center;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+}
+
+@media (max-width: 350px) {
+
+    .btn{
+        width: 100%; /* кнопка растягивается на всю ширину */
+        display: block; /* делает кнопку блочным элементом */
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center; /* выравнивание текста по центру */
+
+    }
+
+
+    .form-control input,
+    .form-control textarea {
+        padding: 12px 15px;
+        font-size: 13px;
+    }
+}

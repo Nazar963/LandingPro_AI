@@ -1,0 +1,166 @@
+
+.contacts-section {
+    width: 100%;
+    background-color: var(--bg-light);
+    padding: 50px 8% ;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color-grey);
+}
+
+.contacts-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contacts-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: stretch;
+}
+
+.subscribe-block {
+    flex: 1;
+    max-width: 500px;
+}
+
+.brand {
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.subscribe-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.email-input {
+    position: relative;
+    width: 100%;
+    max-width: 410px;
+    height: 60px;
+}
+
+.email-input input {
+    width: 100%;
+    height: 100%;
+    padding: 15px 60px 15px 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 70px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.email-input input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.submit-btn {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #1473d1;
+}
+
+.contact-info {
+    flex: 1;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
+}
+
+.contact-title {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.1px;
+    margin-bottom: 20px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.contact-details p {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+/* Планшеты */
+@media (max-width: 768px) {
+    .contacts-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .subscribe-block,
+    .contact-info {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .email-input {
+        margin: 0 auto;
+    }
+
+    .contact-info {
+        align-items: center;
+    }
+
+    .contact-details {
+        align-items: center;
+    }
+}
+
+/* Мобильные */
+@media (max-width: 480px) {
+    .brand {
+        font-size: 24px;
+    }
+
+    .subscribe-title {
+        font-size: 16px;
+    }
+
+    .email-input input {
+        padding: 12px 60px 12px 15px;
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        width: 40px;
+        height: 40px;
+        top: 5px;
+        right: 5px;
+    }
+
+    .submit-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+}

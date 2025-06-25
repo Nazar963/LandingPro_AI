@@ -1,0 +1,128 @@
+.hero-var3 {
+  min-height: 100vh;
+  background-color: #fff;
+  padding: var(--section-padding);
+  font-family: var(--font-main);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-content-wrapper {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: calc(100vh - 96px);
+  padding-top: calc(var(--navbar-height) / 2);
+  gap: 5vw;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero-content {
+  max-width: 720px;
+  width: 100%;
+}
+
+.hero-headline {
+  font-family: var(--font-heading);
+  font-size: clamp(3.5rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.2px;
+  margin-bottom: 24px;
+}
+
+.hero-subhead {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.4;
+  margin-bottom: 40px;
+  font-weight: 500;
+  font-family: var(--font-heading);
+  max-width: 600px;
+}
+
+.hero-image-container {
+  flex: 0 1 45%;
+  height: 70vh;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5rem;
+}
+
+/* Адаптивность */
+@media (max-width: 1600px) {
+  .hero-headline {
+    font-size: 3rem;
+  }
+  .hero-subhead {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-var3 {
+    padding-top: 5rem;
+  }
+  .hero-content {
+    max-width: 100%;
+  }
+  .hero-subhead {
+    max-width: 100%;
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 650px) {
+  .hero-var3 {
+    padding-top: 7rem;
+    min-height: auto;
+  }
+
+  .hero-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 5rem 0;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* ← Центрируем children */
+    text-align: center;  /* ← На всякий случай */
+  }
+
+  .hero-image-container {
+    flex-basis: auto;
+    width: 100%;
+    height: 30vh;
+    min-height: 180px;
+    margin-top: 0.5rem;
+    padding-bottom: 0;
+    display: flex;
+    justify-content: center; /* ← Центрируем картинку */
+  }
+  .hero-headline,
+  .hero-subhead {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .hero-headline {
+    font-size: clamp(2.5rem, 4vw, 3rem);
+  }
+}
