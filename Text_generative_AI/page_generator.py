@@ -1,11 +1,16 @@
 import logging
+import os
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # model_id = "EleutherAI/gpt-j-6B"
-model_id = "meta-llama/Llama-3.2-1B"
+model_id = os.getenv('MODEL_ID', 'meta-llama/Llama-3.2-1B')
 
 logging.info("Starting the model loading process...")
 

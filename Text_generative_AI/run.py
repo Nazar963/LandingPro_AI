@@ -2,6 +2,11 @@ from flask import Flask, request, jsonify
 from openai import OpenAI
 from flask_cors import CORS
 from page_generator import generate_webpage
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -9,8 +14,8 @@ app = Flask(__name__)
 CORS(app)
 
 client = OpenAI(
-    base_url="https://openrouter.ai/api/v1",
-    api_key="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",
+    base_url=os.getenv('API_BASE_URL', 'https://openrouter.ai/api/v1'),
+    api_key=os.getenv('OPENROUTER_API_KEY'),
 )
 
 @app.route('/generate', methods=['POST'])
@@ -28,7 +33,7 @@ def generate():
         f"User Prompt: {user_prompt}"
     )
 
-    max_retries = 3
+    max_retries = int(os.getenv('MAX_RETRIES', 3))
     retries = 0
 
     while retries < max_retries:
@@ -89,4 +94,5 @@ def generate_page():
     return jsonify({"webpage": webpage_content})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    debug_mode = os.getenv('FLASK_DEBUG', 'True').lower() == 'true'
+    app.run(debug=debug_mode)
