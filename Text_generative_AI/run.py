@@ -93,6 +93,14 @@ def generate_page():
     print("Returning response to frontend...")  # Log before returning the response
     return jsonify({"webpage": webpage_content})
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({
+        "status": "healthy",
+        "service": "text_generative_ai",
+        "timestamp": os.getenv('TZ', 'UTC')
+    })
+
 if __name__ == '__main__':
     debug_mode = os.getenv('FLASK_DEBUG', 'True').lower() == 'true'
     app.run(debug=debug_mode)

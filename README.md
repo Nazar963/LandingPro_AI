@@ -288,3 +288,86 @@ For questions or feedback, please open an issue in the repository.
 ---
 
 <p align="center">Made with ❤️ for developers who want to build beautiful landing pages faster</p>
+
+## 📋 Frontend Development Guide
+
+### 🗂️ Vue.js Project Structure (Recommended)
+
+For scalable frontend development, organize your Vue.js project as follows:
+
+```
+frontend/src/
+├── 📁 views/                    # Pages (Routes)
+│   ├── HomeView.vue            # Landing page with generator
+│   ├── GeneratorView.vue       # Main AI generator interface
+│   ├── PreviewView.vue         # Preview generated content
+│   └── HistoryView.vue         # Generation history
+├── 📁 components/
+│   ├── 📁 forms/               # Form components
+│   │   ├── SlideInputForm.vue
+│   │   ├── CompanyInfoForm.vue
+│   │   └── PromptForm.vue
+│   ├── 📁 ui/                  # Basic UI components
+│   │   ├── Button.vue
+│   │   ├── Input.vue
+│   │   ├── Modal.vue
+│   │   └── LoadingSpinner.vue
+│   ├── 📁 layout/              # Layout components
+│   │   ├── Header.vue
+│   │   ├── Sidebar.vue
+│   │   └── Footer.vue
+│   └── 📁 preview/             # Preview components
+│       ├── SlidePreview.vue
+│       └── CodePreview.vue
+├── 📁 stores/                  # State Management (Pinia)
+│   ├── generator.ts            # AI generation state
+│   ├── ui.ts                  # UI state (modals, etc.)
+│   └── auth.ts                # User authentication
+├── 📁 services/               # API & External Services
+│   ├── api.ts                 # Base API setup
+│   ├── generatorService.ts    # AI generation API
+│   └── slideService.ts        # Slide-specific API
+├── 📁 types/                  # TypeScript Types
+│   ├── slide.ts               # Slide-related types
+│   ├── api.ts                 # API response types
+│   └── user.ts                # User-related types
+├── 📁 utils/                  # Utility Functions
+│   ├── helpers.ts             # Utility functions
+│   └── constants.ts           # App constants
+├── 📁 assets/                 # Static Assets
+│   ├── images/
+│   ├── icons/
+│   └── styles/
+└── 📁 router/                 # Vue Router Configuration
+    └── index.ts               # Route definitions
+```
+
+### 🎯 File Naming Conventions
+
+- **Views**: `PascalCase.vue` (e.g., `HomeView.vue`, `AboutView.vue`)
+- **Components**: `PascalCase.vue` (e.g., `SlideInputForm.vue`, `Header.vue`)
+- **Stores**: `camelCase.ts` (e.g., `generator.ts`, `auth.ts`)
+- **Services**: `camelCase.ts` (e.g., `slideService.ts`, `apiService.ts`)
+- **Types**: `camelCase.ts` (e.g., `slide.ts`, `api.ts`)
+
+### 🚀 Development Workflow
+
+#### Creating a New Page
+1. Create view file: `src/views/MyNewPageView.vue`
+2. Add route in `src/router/index.ts`
+3. Add navigation links where needed
+
+#### Creating a New Component
+1. Create component file in appropriate folder: `src/components/forms/MyComponent.vue`
+2. Use the component in views or other components
+3. Export types if needed in `src/types/`
+
+#### Adding New API Service
+1. Create service file: `src/services/myService.ts`
+2. Define TypeScript interfaces in `src/types/`
+3. Use in Pinia stores for state management
+
+#### State Management Pattern
+1. Create store: `src/stores/myFeature.ts`
+2. Define state, getters, and actions
+3. Use in components with `useMyFeatureStore()`

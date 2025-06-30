@@ -1,5 +1,32 @@
 {
+  "name": "landingpro-ai",
+  "version": "1.0.0",
+  "description": "AI-powered landing page generator with microservices architecture",
+  "scripts": {
+    "dev": "./docker-manager.sh dev",
+    "start": "./docker-manager.sh prod",
+    "stop": "./docker-manager.sh stop",
+    "logs": "./docker-manager.sh logs",
+    "clean": "./docker-manager.sh clean"
+  },
   "dependencies": {
     "rxjs": "^7.8.2"
-  }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/LandingPro_AI.git"
+  },
+  "keywords": [
+    "ai",
+    "landing-page",
+    "vue",
+    "lumen",
+    "docker",
+    "microservices"
+  ],
+  "author": "Nazar Al Jendli",
+  "license": "MIT"
 }

@@ -1,88 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="">
+  <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LandingPro AI</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-        }
-        textarea, input {
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 10px;
-            font-size: 16px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .response {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>LandingPro AI</h1>
-        <form id="aiForm">
-            <input type="text" id="companyName" placeholder="Company Name" value="bonex" required>
-            <input type="text" id="companyColors" placeholder="Company Colors" value="black, white, red">
-            <input type="text" id="companyLogo" placeholder="Company Logo URL" value="https://www.bonex.it/wp-content/uploads/2019/12/Bonex-logo-blu.png">
-            <textarea id="companyDescription" placeholder="Company Description">bonex is a leading company in elevator parts manufacturing</textarea>
-            <textarea id="landingPurpose" placeholder="Landing Page Purpose">to promote our new loco product and to get a demo for it</textarea>
-            <textarea id="userPrompt" placeholder="Your Prompt" required>make it unique and simple</textarea>
-            <button type="submit">Generate</button>
-        </form>
-        <div class="response" id="response"></div>
-    </div>
-    <script>
-        document.getElementById('aiForm').addEventListener('submit', async function(event) {
-            event.preventDefault();
-
-            const companyInfo = {
-                name: document.getElementById('companyName').value,
-                colors: document.getElementById('companyColors').value,
-                logo: document.getElementById('companyLogo').value,
-                description: document.getElementById('companyDescription').value,
-                purpose: document.getElementById('landingPurpose').value
-            };
-
-            const prompt = document.getElementById('userPrompt').value;
-
-            const responseDiv = document.getElementById('response');
-            responseDiv.textContent = 'Generating...';
-
-            try {
-                const response = await fetch('http://127.0.0.1:5000/generate', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ company_info: companyInfo, prompt })
-                });
-
-                const data = await response.json();
-
-                // Store the generated content in sessionStorage
-                sessionStorage.setItem('generatedContent', data.webpage);
-
-                // Redirect to the output page
-                window.location.href = 'output.html';
-            } catch (error) {
-                responseDiv.textContent = 'Error generating response. Please try again.';
-            }
-        });
-    </script>
-</body>
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>

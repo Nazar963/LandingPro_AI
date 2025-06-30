@@ -1,33 +1,46 @@
 #!/bin/bash
 
-# LandingPro AI Setup Script
-echo "🚀 Setting up LandingPro AI..."
+# LandingPro AI Docker Setup Script
+echo "🚀 Setting up LandingPro AI with Docker..."
 
-# Create virtual environment if it doesn't exist
-if [ ! -d "venv" ]; then
-    echo "📦 Creating virtual environment..."
-    python3 -m venv venv
+# Check if Docker is installed
+if ! command -v docker &> /dev/null; then
+    echo "❌ Docker is not installed. Please install Docker first."
+    echo "Visit: https://docs.docker.com/get-docker/"
+    exit 1
 fi
 
-# Activate virtual environment
-echo "🔧 Activating virtual environment..."
-source venv/bin/activate
+# Check if Docker Compose is installed
+if ! command -v docker-compose &> /dev/null; then
+    echo "❌ Docker Compose is not installed. Please install Docker Compose first."
+    echo "Visit: https://docs.docker.com/compose/install/"
+    exit 1
+fi
 
-# Install Python dependencies
-echo "📚 Installing Python dependencies..."
-cd Text_generative_AI
-pip install -r requirements.txt
-cd ..
+# Check if .env file exists
+if [ ! -f ".env" ]; then
+    echo "⚙️  Creating .env file from template..."
+    cp .env.example .env
+    echo "🔑 Please edit .env file and add your OpenRouter API key!"
+fi
 
-# Install Node.js dependencies
-echo "🌐 Installing Node.js dependencies..."
-npm install
+# Make docker manager executable
+chmod +x docker-manager.sh
 
 echo "✅ Setup complete!"
 echo ""
-echo "📋 Next steps:"
-echo "1. Update your OpenRouter API key in .env file"
-echo "2. Run the backend: cd Text_generative_AI && python run.py"
-echo "3. Open frontend/index.html in your browser"
+echo "📋 Available commands:"
+echo "  npm run dev     - Start development environment"
+echo "  npm run start   - Start production environment"
+echo "  npm run stop    - Stop all services"
+echo "  npm run logs    - View service logs"
+echo "  npm run clean   - Clean up containers"
 echo ""
-echo "🔑 Don't forget to add your actual API key to the .env file!"
+echo "🔗 Access URLs (after starting):"
+echo "  Frontend:    http://localhost:3000"
+echo "  Backend API: http://localhost:8000/api"
+echo "  Health:      http://localhost:8000/api/health"
+echo ""
+echo "🔑 Don't forget to add your actual OpenRouter API key to the .env file!"
+echo ""
+echo "🚀 Ready to start? Run: npm run dev"

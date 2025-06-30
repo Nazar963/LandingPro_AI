@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  # Vue.js Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:5173"
+    environment:
+      - VITE_API_URL=http://localhost:8000/api
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - landingpro-network
+
+  # Lumen Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_ENV=development
+      - APP_DEBUG=true
+      - AI_SERVICE_URL=http://ai-service:5000
+    volumes:
+      - ./backend:/var/www/html
+    depends_on:
+      - ai-service
+    networks:
+      - landingpro-network
+
+  # AI Text Generation Service
+  ai-service:
+    build:
+      context: ./Text_generative_AI
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=True
+    env_file:
+      - .env
+    volumes:
+      - ./Text_generative_AI:/app
+      - ai-models:/app/models
+    networks:
+      - landingpro-network
+
+  # Redis for caching (optional)
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - landingpro-network
+
+volumes:
+  redis-data:
+  ai-models:
+
+networks:
+  landingpro-network:
+    driver: bridge
