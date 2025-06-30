@@ -278,6 +278,9 @@ For questions or feedback, please open an issue in the repository.
 [![GitHub Profile](https://img.shields.io/badge/GitHub-Nazar963-lightgrey)](https://github.com/Nazar963)
 [![GitHub Follow](https://img.shields.io/github/followers/Nazar963?style=social)](https://github.com/Nazar963)
 
+[![GitHub Profile](https://img.shields.io/badge/GitHub-nakoriko-lightgrey)](https://github.com/nakoriko)
+[![GitHub Follow](https://img.shields.io/github/followers/nakoriko?style=social)](https://github.com/nakoriko)
+
 ## 🙏 Acknowledgments
 
 - OpenRouter for AI API access
